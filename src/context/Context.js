@@ -3,26 +3,32 @@ import React, {
   useContext,
   useEffect,
   useReducer,
-  useState,
+
 } from "react";
 import axios from "axios";
+import { cartReducer } from "./Reducer";
 
 const Cart = createContext();
 
 const Context = ({ children }) => {
-  const [products, setProducts] = useState([]);
+  
+  const [cartState, cartDispatch] = useReducer(cartReducer, {
+    products: [],
+    cart: [],
+  });
+
+  const getAllProducts = async () => {
+    const { data } = await axios.get("https://fakestoreapi.com/products");
+    // const results = data.map((v) => ({...v, qty:1}))
+    cartDispatch({ type: "UPDATE", payload: data})
+   
+  };
+
   useEffect(() => {
-    const getAllProducts = async () => {
-      const { data } = await axios.get("https://fakestoreapi.com/products");
-      setProducts(data);
-    };
     getAllProducts();
   }, []);
 
-  const [cartState, cartDispatch] = useReducer(cartReducer, {
-    products: products,
-    cart: [],
-  });
+
 
   return (
     <Cart.Provider value={{ cartState, cartDispatch }}>
