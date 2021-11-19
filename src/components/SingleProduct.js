@@ -9,22 +9,24 @@ const SingleProduct = ({ prod }) => {
 
   const [qty, setQty] = useState(1);
 
+  console.log(cart)
+
   return (
     <>
-      <div className="flex flex-col justify-center">
+      <div className="flex flex-col justify-center w-1/6">
         <div className="relative m-3 flex flex-wrap mx-auto justify-center">
-          <div className="relative max-w-md hover:bg-gray-300 hover:scale-105 transition transform shadow-md rounded-3xl p-2 mx-1 my-3 cursor-pointer">
+          <div className="relative hover:bg-gray-300 min-w-full hover:scale-105 transition ease-linear transform shadow-md rounded-3xl p-2 mx-1 my-3 cursor-pointer">
             <div className="overflow-x-hidden rounded-2xl relative">
               <img
                 className="h-40 rounded-2xl w-full object-contain"
                 src={prod.image}
                 alt=""
               />
-
+              w-6 h-6 group-hover:opacity-50 opacity-70 text-white
               {cart.some((c) => c.id === prod.id) ? (
-                <p className="absolute right-2 top-2 rounded-full p-2 cursor-pointer group bg-red-900">
+                <p className="absolute right-2 hover:bg-red-900 top-2 rounded-full p-2 cursor-pointer group bg-red-500 ">
                   <svg
-                    className="w-6 h-6 group-hover:opacity-50 opacity-70 text-white"
+                    className="w-6 text-white"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -40,7 +42,7 @@ const SingleProduct = ({ prod }) => {
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       strokeWidth={2}
-                      d="M20 12H4"
+                      d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
                     />
                   </svg>
                 </p>
@@ -70,12 +72,12 @@ const SingleProduct = ({ prod }) => {
               )}
             </div>
             <div className="mt-4 pl-2 mb-2 flex justify-between ">
-              <div>
+              <div className="w-full">
                 <p className="text-lg font-semibold text-gray-900 mb-0">
                   {prod.title}
                 </p>
 
-                <div className="flex justify-center items-center rounded-lg border-t mt-2 shadow-sm">
+                <div className="flex justify-center items-center rounded-lg  border-t mt-2 shadow-sm">
                   <p className="text-md text-gray-800 mt-0 flex-1 text-2xl">
                     ৳{prod.price}
                   </p>

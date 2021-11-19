@@ -5,7 +5,7 @@ import SingleProduct from './SingleProduct';
 const Products = () => {
     const {cartState : {products}} = CartState()
   
-    console.log(products);
+
     return (
         <>
         <div className="text-center font-extrabold text-5xl font-dancing-script text-">
