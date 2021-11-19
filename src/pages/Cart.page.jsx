@@ -1,13 +1,21 @@
 import React from 'react';
 import Total from '../components/Total';
 import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
+import CheckoutForm from '../components/CheckoutForm';
+
+
+
 
 
 const Cart = () => {
     return (
         <div>
+
+      
         <Navbar />
+
+        {/* <CheckoutForm /> */}
+ 
          <Total />
    
 

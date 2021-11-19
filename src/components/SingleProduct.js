@@ -9,8 +9,6 @@ const SingleProduct = ({ prod }) => {
 
   const [qty, setQty] = useState(1);
 
-  console.log(cart)
-
   return (
     <>
       <div className="flex flex-col justify-center w-1/6">

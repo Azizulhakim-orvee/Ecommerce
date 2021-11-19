@@ -1,23 +1,21 @@
-import React from 'react';
+import React from "react";
 import Banner from "../components/Banner";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import Products from "../components/Products";
 
 const Home = () => {
-    return (
-        <div className="bg-gray-100">
+  return (
+    <div className="bg-gray-100">
+      <Navbar />
 
-        <Navbar />
-  
-        <Banner />
-  
-        <Products />
-  
-        <Footer />
+      <Banner />
 
-        </div>
-    );
+      <Products />
+
+      <Footer />
+    </div>
+  );
 };
 
 export default Home;
